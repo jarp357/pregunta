@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta con botones</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .question {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .question img {
+            max-height: 70vh; /* Ajusta esta altura para que la imagen quepa mejor */
+            width: auto;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="question">
+        <img src="question.png" alt="¿Quieres continuar?" />
+    </div>
+    <div class="buttons">
+        <button id="yesButton">Sí</button>
+        <button id="noButton">No</button>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+
+        yesButton.addEventListener('click', () => {
+            window.close();
+        });
+
+        noButton.addEventListener('click', () => {
+            const x = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+            const y = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        });
+    </script>
+</body>
+</html>
